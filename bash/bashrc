@@ -1,0 +1,19 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[$?][\u@\h \W]\$ '
+
+alias surf='tabbed -c surf -e'
+alias updatedb='updatedb -l 0 -U $HOME -o $HOME/sandbox/mlocate_db'
+alias locate='locate -d $HOME/sandbox/mlocate_db'
+alias xmaple='wmname LG3D && xmaple'
+
+
+export PATH=$PATH:$HOME/._sys/scripts:/sage/fidbc/sage:/sage/fidbc/git-trac-command:/sage/fidbc/maple/bin
+export PATH=$PATH:/sage/fidbc/plantri45:/sage/fidbc/nauty25r9
+export PATH=/home/fidbc/.gem/ruby/2.1.0/bin:$PATH:
