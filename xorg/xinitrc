@@ -1,0 +1,35 @@
+#!/bin/bash
+# Common:
+
+#exec openbox-session
+
+# echo "300" | sudo tee /sys/class/backlight/intel_backlight/brightness >/dev/null
+
+xset b off # no bells please!
+
+# awesome shortcut to switch kbd layouts: Alt + Caps
+setxkbmap -option "grp:alt_caps_toggle" -layout "us, latam"
+
+
+# get rid of that annoying mouse pointer
+unclutter -idle 2 -noevents &
+
+# openbox specific
+#exec openbox-session
+
+# dwm specific
+
+# some wallpaper magic
+feh --bg-scale ~/wall.png
+
+# Statusbar customisation (battery info + date and time)
+# based on https://wiki.archlinux.org/index.php/Dwm#Basic_statusbar
+while true; do
+    sleep 1
+    xsetroot -name "$(acpi -b | awk 'sub(/,/,"") {printf("%s%02d%% [%s]\n",substr($3,1,1),$4,substr($5,4,8))}'|tr -d ,) | $(date +"%F %R:%S" )"
+    sleep 4
+done &
+exec dwm
+#exec openbox-session
+
+
