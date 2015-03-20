@@ -51,7 +51,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, 
 // Originally -> static const char *termcmd[]  = { "uxterm", NULL };
 static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 //Custom commands
-static const char *alsamixer_cmd[]  = { "st", "-e", "alsamixer", NULL };
+//static const char *alsamixer_cmd[]  = { "st", "-e", "alsamixer", NULL };
+//For the case when the default device is not 0
+static const char *alsamixer_cmd[]  = { "st", "-e", "alsamixer", "-c", "1",  NULL };
 static const char *emacs_cmd[]  = { "emacs", NULL };
 static const char *firefox_cmd[]  = { "firefox", NULL };
 static const char *htop_cmd[]  = { "st", "-e", "htop", NULL };
